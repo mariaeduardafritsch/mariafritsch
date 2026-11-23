@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pesquisa de Qualidade de Vida</title>
+
+<style>
+
+/* ESTILO GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0ebf8;
+    color: #333;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    background: white;
+    border-top: 10px solid #673ab7;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.cabecalho h1 {
+    margin-bottom: 15px;
+    font-size: 27px;
+}
+
+.cabecalho p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* PERGUNTAS */
+.pergunta {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px #ddd;
+}
+
+.pergunta h3 {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.pergunta label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    accent-color: #673ab7;
+    width: 17px;
+    height: 17px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    font-size: 15px;
+    outline: none;
+    font-family: Arial;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom: 2px solid #673ab7;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ESCALA */
+.escala {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.escala label {
+    flex-direction: column;
+}
+
+/* BOTÃO */
+button {
+    background: #673ab7;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #512da8;
+    transform: translateY(-2px);
+}
+
+#mensagem {
+    margin-top: 20px;
+    color: #2e7d32;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    color: #777;
+    padding: 25px;
+    font-size: 13px;
+}
+
+/* CELULAR */
+@media(max-width: 600px) {
+    .cabecalho {
+        padding: 22px;
+    }
+
+    .cabecalho h1 {
+        font-size: 22px;
+    }
+
+    .pergunta {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- CABEÇALHO -->
+
+    <header class="cabecalho">
+
+        <h1>Pesquisa de Qualidade de Vida</h1>
+
+        <p>
+            Seja bem-vindo(a) à nossa pesquisa!
+            O objetivo é compreender os hábitos,
+            a saúde e o bem-estar das pessoas.
+            Responda às perguntas com sinceridade.
+        </p>
+
+    </header>
+
+    <!-- FORMULÁRIO -->
+
+    <form id="formulario">
+
+        <section class="pergunta">
+
+            <h3>1. Qual é o seu nome?</h3>
+
+            <input type="text" id="nome"
+            placeholder="Digite seu nome" required>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>2. Qual é a sua idade?</h3>
+
+            <input type="number" id="idade"
+            placeholder="Digite sua idade"
+            min="1" max="120" required>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>3. Qual é o seu gênero?</h3>
+
+            <label><input type="radio" name="genero" value="Feminino" required> Feminino</label>
+
+            <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
+
+            <label><input type="radio" name="genero" value="Outro"> Outro</label>
+
+            <label><input type="radio" name="genero" value="Prefiro não informar"> Prefiro não informar</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>4. Como você considera sua saúde atualmente?</h3>
+
+            <label><input type="radio" name="saude" value="Ótima" required> Ótima</label>
+
+            <label><input type="radio" name="saude" value="Boa"> Boa</label>
+
+            <label><input type="radio" name="saude" value="Regular"> Regular</label>
+
+            <label><input type="radio" name="saude" value="Ruim"> Ruim</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>5. Você pratica atividades físicas?</h3>
+
+            <label><input type="radio" name="atividade" value="Sim, frequentemente" required> Sim, frequentemente</label>
+
+            <label><input type="radio" name="atividade" value="Às vezes"> Às vezes</label>
+
+            <label><input type="radio" name="atividade" value="Raramente"> Raramente</label>
+
+            <label><input type="radio" name="atividade" value="Nunca"> Nunca</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>6. Como você avalia sua alimentação?</h3>
+
+            <label><input type="radio" name="alimentacao" value="Muito saudável" required> Muito saudável</label>
+
+            <label><input type="radio" name="alimentacao" value="Saudável"> Saudável</label>
+
+            <label><input type="radio" name="alimentacao" value="Pouco saudável"> Pouco saudável</label>
+
+            <label><input type="radio" name="alimentacao" value="Nada saudável"> Nada saudável</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>7. Quantas horas você costuma dormir por noite?</h3>
+
+            <label><input type="radio" name="sono" value="Menos de 5 horas" required> Menos de 5 horas</label>
+
+            <label><input type="radio" name="sono" value="Entre 5 e 6 horas"> Entre 5 e 6 horas</label>
+
+            <label><input type="radio" name="sono" value="Entre 7 e 8 horas"> Entre 7 e 8 horas</label>
+
+            <label><input type="radio" name="sono" value="Mais de 8 horas"> Mais de 8 horas</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>8. Como você avalia sua saúde mental?</h3>
+
+            <label><input type="radio" name="mental" value="Muito boa" required> Muito boa</label>
+
+            <label><input type="radio" name="mental" value="Boa"> Boa</label>
+
+            <label><input type="radio" name="mental" value="Regular"> Regular</label>
+
+            <label><input type="radio" name="mental" value="Ruim"> Ruim</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>9. Com que frequência você sente estresse?</h3>
+
+            <label><input type="radio" name="estresse" value="Sempre" required> Sempre</label>
+
+            <label><input type="radio" name="estresse" value="Frequentemente"> Frequentemente</label>
+
+            <label><input type="radio" name="estresse" value="Às vezes"> Às vezes</label>
+
+            <label><input type="radio" name="estresse" value="Raramente"> Raramente</label>
+
+            <label><input type="radio" name="estresse" value="Nunca"> Nunca</label>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>10. De 1 a 5, como você avalia sua qualidade de vida?</h3>
+
+            <div class="escala">
+
+                <label><input type="radio" name="qualidade" value="1" required> 1</label>
+
+                <label><input type="radio" name="qualidade" value="2"> 2</label>
+
+                <label><input type="radio" name="qualidade" value="3"> 3</label>
+
+                <label><input type="radio" name="qualidade" value="4"> 4</label>
+
+                <label><input type="radio" name="qualidade" value="5"> 5</label>
+
+            </div>
+
+            <p style="color:#777; margin-top:15px; font-size:13px;">
+                1 = Muito ruim | 5 = Excelente
+            </p>
+
+        </section>
+
+        <section class="pergunta">
+
+            <h3>11. O que você acredita que poderia melhorar sua qualidade de vida?</h3>
+
+            <textarea id="melhoria"
+            placeholder="Escreva sua resposta aqui..."
+            rows="4" required></textarea>
+
+        </section>
+
+        <button type="submit">Enviar respostas</button>
+
+        <p id="mensagem"></p>
+
+    </form>
+
+    <footer>
+        Pesquisa de Qualidade de Vida © 2026
+    </footer>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const respostas = {
+
+        nome: document.getElementById("nome").value,
+
+        idade: document.getElementById("idade").value,
+
+        genero: document.querySelector('input[name="genero"]:checked').value,
+
+        saude: document.querySelector('input[name="saude"]:checked').value,
+
+        atividade: document.querySelector('input[name="atividade"]:checked').value,
+
+        alimentacao: document.querySelector('input[name="alimentacao"]:checked').value,
+
+        sono: document.querySelector('input[name="sono"]:checked').value,
+
+        mental: document.querySelector('input[name="mental"]:checked').value,
+
+        estresse: document.querySelector('input[name="estresse"]:checked').value,
+
+        qualidade: document.querySelector('input[name="qualidade"]:checked').value,
+
+        melhoria: document.getElementById("melhoria").value
+
+    };
+
+    console.log("Respostas da pesquisa:", respostas);
+
+    document.getElementById("mensagem").textContent =
+    "Obrigado, " + respostas.nome + "! Sua participação foi registrada nesta sessão.";
+
+    formulario.reset();
+
+});
+
+</script>
+
+</body>
+</html>
